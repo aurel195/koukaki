@@ -1,0 +1,210 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+*/
+.fadeUp {
+  opacity: 0;
+  animation: fadeUp 2s forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.banner {
+  animation: fadeDown 2s;
+}
+
+.video-banner,
+.image-fallback {
+  position: absolute;
+  z-index: 1;
+}
+
+.logo {
+  animation: floatingLogo 5s ease-in-out infinite;
+  animation-delay: 1s;
+  z-index: 2;
+}
+
+@keyframes floatingLogo {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, -40px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+.image-fallback {
+  background: url("./assets/images/banner.png");
+}
+
+@media only screen and (max-width: 768px) {
+  .fallback-image {
+    display: block;
+    background-size: cover;
+    background-position: center;
+  }
+  #video-banner {
+    display: none;
+  }
+}
+#studio h2::before, #studio h2::after, article.story__article::after, .story h2::after, ul::after {
+  animation: flower-rotation 20s linear infinite;
+}
+
+@keyframes flower-rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.site-footer::before,
+.site-footer::after {
+  display: none;
+}
+
+.nomination {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 100px;
+}
+
+#nomination h3 {
+  background-image: url("./assets/images/background_studio.png");
+  background-size: 674px 196px;
+  margin: 0;
+  background-position: center;
+  text-align: left;
+  font-size: 35px;
+  line-height: normal;
+  font-weight: 700;
+  padding: 50px 30px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 643px;
+  position: relative;
+}
+
+.sunflower {
+  position: absolute;
+  left: 145px;
+  top: -80px;
+}
+
+.orchidee {
+  position: absolute;
+  right: -64px;
+  bottom: 200px;
+}
+
+.sunflower,
+.orchidee {
+  animation: flower-rotation 10s linear infinite;
+}
+
+.oscars_logo {
+  width: 279px;
+  height: 129px;
+}
+
+@media screen and (max-width: 1015px) {
+  .nomination {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 765px) {
+  #nomination h3 {
+    font-size: 22px;
+    line-height: normal;
+    font-weight: 400;
+    width: auto;
+    text-align: center;
+    background-size: 600px 200px;
+  }
+}
+.titleAnim1,
+.titleAnim2 {
+  opacity: 0;
+}
+
+.titleMov1,
+.titleMov2 {
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+}
+
+.titleMov1 {
+  animation: titleMov1 1.5s ease-in-out;
+}
+
+.titleMov2 {
+  animation: titleMov2 1.5s ease-in-out;
+}
+
+@keyframes titleMov1 {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes titleMov2 {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.story #place {
+  background-image: url(./assets/images/place.png);
+}
+.story #place .clouds {
+  position: relative;
+  filter: blur(13px);
+}
+.story #place .big-cloud {
+  margin-top: -348px;
+  padding-left: 320px;
+  position: relative;
+}
+.story #place .little-cloud {
+  margin-left: 10px;
+}/*# sourceMappingURL=style.css.map */
