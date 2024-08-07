@@ -6,7 +6,6 @@ function theme_enqueue_styles() {
     wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/js/script.js');
     wp_enqueue_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
-    wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.js');
 }
 
 

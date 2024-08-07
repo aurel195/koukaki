@@ -1,6 +1,10 @@
 
 //SwiperJS 
 // Dupliquer les diapositives existantes
+
+
+console.log("c'est parti pour le script du Swiper...!");
+
 let originalSlides = document.querySelectorAll(".swiper-slide");
 
 originalSlides.forEach((slide) => {
@@ -8,7 +12,6 @@ originalSlides.forEach((slide) => {
   document.querySelector(".mySwiper .swiper-wrapper").appendChild(duplicateSlide);
 });
 
-// Initialiser Swiper avec les diapositives doublées
 document.addEventListener("DOMContentLoaded", (event) => {
   const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
@@ -30,6 +33,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 //Animation Titres
+
+console.log("c'est parti pour le script des titres...!");
 
 document.addEventListener('DOMContentLoaded', function() {
   const observer1 = new IntersectionObserver((entries) => {
@@ -66,115 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Scroll clouds
 
 // Affichage d'un message dans la console
-//console.log("Démarrage du cript en cours...!");
-
-// Sélection de l'élément HTML avec l'ID "NuagesBleu"
-//const NuagesBleu = document.getElementById("NuagesBleu");
-
-// Vitesse de déplacement des nuages
-//const NuagesBleuVitesse = 0.3;
-
-// Position initiale verticale des nuages
-//const NuagesBleuPosition = window.innerHeight / 2 - 40;//position du nuage
-
-// Fonction de défilement des nuages en réponse à l'événement de défilement de la fenêtre
-//function scrollNuage() {
-  // Calcul de la nouvelle position horizontale des nuages en fonction du défilement de la fenêtre
-  //const NuagesBleuX = -window.scrollY * NuagesBleuVitesse + NuagesBleuPosition;//déplacement du nuage
-  
-  // Application de la transformation pour déplacer les nuages horizontalement
-  //NuagesBleu.style.transform = `translateX(${NuagesBleuX}px)`; //applique le déplacement
-
-// Ajout d'un écouteur d'événement pour détecter le défilement de la fenêtre et déclencher la fonction de défilement des nuages
-//window.addEventListener("scroll", scrollNuage);
-
-// Scroll clouds
-
-// Affichage d'un message dans la console
-/* console.log("Démarrage du cript en cours...!");
-
-// Sélection de l'élément HTML avec l'ID "NuagesBleu"
-const bigCloud = document.getElementById("big_cloud");
-const littleCloud = document.getElementById("little_cloud");
-
-
-// Vitesse de déplacement des nuages
-const bigCloudSpeed = 0.3;
-const littleCloudSpeed = 0.3;
-
-// Position initiale verticale des nuages
-const bigCloudPosition = window.innerHeight / 2 - 40;//position du nuage
-const littleCloudPosition = window.innerHeight / 2 - 40;//position du nuage
-
-// Fonction de défilement des nuages en réponse à l'événement de défilement de la fenêtre
-function scrollNuage() {
-  // Calcul de la nouvelle position horizontale des nuages en fonction du défilement de la fenêtre
-  const bigCloudX = -window.scrollY * bigCloudSpeed + bigCloudPosition;//déplacement du nuage
-  const littleCloudX = -window.scrollY * littleCloudSpeed + littleCloudPosition;//déplacement du nuage
-  
-  // Application de la transformation pour déplacer les nuages horizontalement
-  bigCloud.transform = `translateX(${bigCloudX}px)`; //applique le déplacement
-  littleCloud.transform = `translateX(${littleCloudX}px)`; //applique le déplacement
-}
-
-// Ajout d'un écouteur d'événement pour détecter le défilement de la fenêtre et déclencher la fonction de défilement des nuages
-window.addEventListener("scroll", scrollNuage); */
-
-/*console.log("Démarrage du script en cours...!");
-function moveCloudsOnScroll() {
-  const bigCloud = document.querySelector('.big-cloud');
-  const littleCloud = document.querySelector('.little-cloud');
-  const placeSection = document.getElementById('place');
-  const bigCloudInitialRight = 80; // Position initiale en CSS
-  const littleCloudInitialRight = 480; // Position initiale en CSS
-  
-  function animateClouds() {
-      const scrollY = window.scrollY;
-      const placeSectionRect = placeSection.getBoundingClientRect();
-
-      if (placeSectionRect.top < window.innerHeight && placeSectionRect.bottom > 0) {
-        const bigCloudX = -scrollY * 0.3 + bigCloudInitialRight; // Position initiale + ajustement
-        const littleCloudX = -scrollY * 0.3 + littleCloudInitialRight; // Position initiale + ajustement
-
-        bigCloud.style.transform = `translateX(${bigCloudX}px)`;
-        littleCloud.style.transform = `translateX(${littleCloudX}px)`;
-    }
-}
-
-animateClouds();
-
-window.addEventListener('scroll', animateClouds);
-}
-
-document.addEventListener('DOMContentLoaded', moveCloudsOnScroll);*/
-
-/*console.log("Le script lancé est animationNuages.js");
-function moveCloudsOnScroll() {
-    const bigCloud = document.querySelector('.big-cloud');
-    const littleCloud = document.querySelector('.little-cloud');
-    const placeSection = document.getElementById('place');
-    const bigCloudInitialRight = 80; // Position initiale en CSS
-    const littleCloudInitialRight = 480; // Position initiale en CSS
-    
-    function animateClouds() {
-        const scrollY = window.scrollY;
-        const placeSectionRect = placeSection.getBoundingClientRect();
-
-        if (placeSectionRect.top < window.innerHeight && placeSectionRect.bottom > 0) {
-            const bigCloudX = -scrollY * 0.3 + bigCloudInitialRight; // Position initiale + ajustement
-            const littleCloudX = -scrollY * 0.3 + littleCloudInitialRight; // Position initiale + ajustement
-
-            bigCloud.style.transform = `translateX(${bigCloudX}px)`;
-            littleCloud.style.transform = `translateX(${littleCloudX}px)`;
-        }
-    }
-
-    animateClouds();
-
-    window.addEventListener('scroll', animateClouds);
-}
-
-document.addEventListener('DOMContentLoaded', moveCloudsOnScroll);*/
+console.log("c'est parti pour le script des nuages...!");
 
 window.addEventListener('scroll', function() {
 	let scrollClouds = document.querySelector('.clouds');
@@ -187,6 +84,43 @@ window.addEventListener('scroll', function() {
 	}
  });
 
- //Initialisation Skrollr
 
- var s = skrollr.init();
+ // Menu burger
+ 
+  //... Selected class menuToggle DOM
+
+  console.log("c'est parti pour le script du burger...!");
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+    // Sélectionner le bouton burger
+    const menuToggle = document.querySelector(".menuToggle");
+    // Sélectionner les parties du menu
+    const partToggle = [
+        document.querySelector(".menuNav"),
+        document.querySelector(".menuLogo"),
+        document.querySelector(".menuFlowers"),
+        document.querySelector(".menuCats"),
+        document.querySelector(".menuFooter"),
+    ];
+    menuToggle.addEventListener("click", toggleNav);
+    console.log("tu cliques sur le burger!!");
+    // Ajouter les écouteurs pour les parties du menu (permet de faire fermer le menu)
+    partToggle.forEach((part) =>
+        part.addEventListener("click", toggleNav)
+    );
+    // Ajouter les écouteurs pour les liens du menu (ferme le menu lorsque l'on clique sur un lien)
+    document
+    .querySelectorAll(".linkNav")
+    .forEach((link) => link.addEventListener("click", closedMenu));
+    // Fonction pour basculer l'état du menu
+    function toggleNav() {
+        menuToggle.classList.toggle("active");
+        partToggle.forEach((part) => part.classList.toggle("active"));
+    }
+    // Fonction pour fermer le menu
+    function closedMenu() {
+        menuToggle.classList.remove("active");
+        partToggle.forEach((part) => part.classList.remove("active"));
+    }
+  });

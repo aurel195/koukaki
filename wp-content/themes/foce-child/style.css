@@ -48,10 +48,10 @@
 
 .logo {
   z-index: 2;
-  animation: floatingLogo 5s ease-in-out infinite;
+  animation: floating 5s ease-in-out infinite;
 }
 
-@keyframes floatingLogo {
+@keyframes floating {
   0% {
     transform: translate(0px, 0px);
   }
@@ -124,20 +124,20 @@
   position: relative;
 }
 
-.sunflower {
+.sunflower_section_nomination {
   position: absolute;
   left: 145px;
   top: -80px;
 }
 
-.orchidee {
+.orchidee_section_nomination {
   position: absolute;
   right: -64px;
   bottom: 200px;
 }
 
-.sunflower,
-.orchidee {
+.sunflower_section_nomination,
+.orchidee_section_nomination {
   animation: flower-rotation 10s linear infinite;
 }
 
@@ -217,4 +217,233 @@
 }
 .story #place .little-cloud {
   margin-left: 10px;
+}
+
+/* MENU */
+.main-navigation {
+  display: flex;
+  width: 100%;
+}
+.main-navigation .site-title {
+  height: 100%;
+  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 38%;
+}
+.main-navigation .site-title:hover {
+  color: black;
+}
+
+.menuToggle {
+  width: 110px;
+  height: 85px;
+  z-index: 20;
+  position: absolute;
+  cursor: pointer;
+  margin-left: 87%;
+  margin-top: 25px;
+}
+.menuToggle.active .line:nth-child(2) {
+  opacity: 0;
+}
+.menuToggle.active .line:nth-child(1) {
+  transform: translateY(9px) rotate(50deg);
+}
+.menuToggle.active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(-50deg);
+}
+.menuToggle .line {
+  display: block;
+  background: black;
+  width: 45px !important;
+  height: 3px !important;
+  margin: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menuNav,
+.menuLogo,
+.menuFlowers,
+.menuCats, .menuFooter {
+  position: fixed;
+  left: 0;
+  flex-direction: column;
+  background-color: #fff5e9;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.menuNav.active,
+.menuLogo.active,
+.menuFlowers.active,
+.menuCats.active, .menuFooter.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 80px;
+}
+
+.linkNav {
+  font-size: 64px;
+  transition: 0.7s ease;
+  pointer-events: auto;
+}
+.linkNav:hover {
+  color: black;
+  text-shadow: 0 0 14px #ffa885;
+  transition: opacity 0.3s;
+}
+
+.menuLogo {
+  display: flex;
+  align-items: center;
+}
+.menuLogo .logoNav {
+  left: 46%;
+  width: 200px;
+  height: auto;
+}
+
+.footerNav {
+  position: relative;
+  align-items: center;
+}
+
+.orchid, .sunflower, .flower, .random, .hibiscus {
+  position: absolute;
+  height: auto;
+  animation: flower-rotation 18s linear infinite;
+}
+
+.orchid {
+  top: 70px;
+  left: -3%;
+  width: 150px;
+}
+
+.sunflower {
+  top: 90px;
+  left: 70%;
+  width: 200px;
+}
+
+.flower {
+  top: 410px;
+  left: 18%;
+  width: 50px;
+}
+
+.random {
+  top: 350px;
+  left: 98%;
+  width: 50px;
+}
+
+.hibiscus {
+  top: 530px;
+  left: 86%;
+  width: 28%;
+}
+
+.blackCat, .blueCat, .orangeCat {
+  position: absolute;
+  height: auto;
+}
+
+.blackCat {
+  top: 420px;
+  left: 75%;
+  width: 130px;
+  animation: floating 3s 2s infinite ease-in-out;
+}
+
+.blueCat {
+  top: 160px;
+  left: 20%;
+  width: 120px;
+  animation: floating 3s 2s infinite ease-in-out;
+}
+
+.orangeCat {
+  top: 610px;
+  left: 8%;
+  width: 115px;
+  animation: floating 3s 2s infinite ease-in-out;
+}
+
+/*... Media */
+@media (min-width: 300px) and (max-width: 767px) {
+  .site-header {
+    background-color: #ffd5a2;
+    height: 60px;
+  }
+  .site-title {
+    margin-top: 3% !important;
+    margin-left: 6% !important;
+    font-size: 15px !important;
+  }
+  .main-navigation .menuNav {
+    display: flex;
+    height: 100%;
+  }
+  .menuSection {
+    margin-top: -10% !important;
+    height: 35%;
+  }
+  .menuToggle {
+    top: -14%;
+    width: 0%;
+    left: -6%;
+  }
+  .linkNav {
+    font-size: 18px;
+  }
+  .footerNav {
+    margin-top: -20% !important;
+    left: 41% !important;
+  }
+  .orchid {
+    left: 10% !important;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .site-header {
+    background-color: #ffd5a2;
+    height: 80px;
+    width: 100%;
+  }
+  .site-title {
+    margin-left: 3% !important;
+    font-size: 30px !important;
+  }
+  .main-navigation .menuNav {
+    display: flex;
+    height: 100%;
+  }
+  .menuSection {
+    margin-top: 0% !important;
+    height: 45% !important;
+  }
+  .btnburger {
+    width: 0%;
+    left: -6%;
+  }
+  .linkNav {
+    font-size: 40px;
+  }
+  .footerNav {
+    margin-top: 30% !important;
+    left: 41% !important;
+  }
+  .orchid {
+    left: 10% !important;
+  }
 }/*# sourceMappingURL=style.css.map */
