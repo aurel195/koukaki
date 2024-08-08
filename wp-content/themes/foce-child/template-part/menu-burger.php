@@ -1,5 +1,5 @@
 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title" rel="home"><?php bloginfo( 'name' ); ?></a>
-        <div class="menuToggle">
+        <div class="menuBurger">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
@@ -30,9 +30,10 @@
                 <img class="blueCat" src="<?php echo get_theme_file_uri() . '/assets/images/blueCat.png'; ?>" alt="Chat Bleu">
                 <img class="orangeCat" src="<?php echo get_theme_file_uri() . '/assets/images/orangeCat.png'; ?>" alt="Chat Orange">
             </div>
-</div>
+
             <div class="menuFooter">
                 <p class="footerNav">STUDIO KOUKAKI</p>
-            </div>
+
         </div>
+</div>
         

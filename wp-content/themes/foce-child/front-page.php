@@ -4,7 +4,7 @@ get_header();
 ?>
 
     <main id="primary" class="site-main">
-        <section class="banner banner-container;">
+        <section class="banner banner-container">
             <?php get_template_part( '/template-part/video-banner'); ?>
         </section>
         <section id="story" class="story fadeUp">

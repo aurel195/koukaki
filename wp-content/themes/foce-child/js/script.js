@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 });
 
+
+
 //Animation Titres
 
 console.log("c'est parti pour le script des titres...!");
@@ -68,9 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
   Section2.forEach((element) => observer2.observe(element));
 });
 
+
+
+
 // Scroll clouds
 
-// Affichage d'un message dans la console
 console.log("c'est parti pour le script des nuages...!");
 
 window.addEventListener('scroll', function() {
@@ -86,41 +90,36 @@ window.addEventListener('scroll', function() {
 
 
  // Menu burger
- 
-  //... Selected class menuToggle DOM
 
   console.log("c'est parti pour le script du burger...!");
 
   document.addEventListener("DOMContentLoaded", function() {
-
-    // Sélectionner le bouton burger
-    const menuToggle = document.querySelector(".menuToggle");
-    // Sélectionner les parties du menu
-    const partToggle = [
+    const menuBurger = document.querySelector(".menuBurger");
+    const partBurger = [
         document.querySelector(".menuNav"),
         document.querySelector(".menuLogo"),
         document.querySelector(".menuFlowers"),
         document.querySelector(".menuCats"),
         document.querySelector(".menuFooter"),
     ];
-    menuToggle.addEventListener("click", toggleNav);
-    console.log("tu cliques sur le burger!!");
-    // Ajouter les écouteurs pour les parties du menu (permet de faire fermer le menu)
-    partToggle.forEach((part) =>
-        part.addEventListener("click", toggleNav)
+    menuBurger.addEventListener("click", burger);
+    
+    partBurger.forEach((part) =>
+        part.addEventListener("click", burger)
     );
-    // Ajouter les écouteurs pour les liens du menu (ferme le menu lorsque l'on clique sur un lien)
+ 
     document
     .querySelectorAll(".linkNav")
-    .forEach((link) => link.addEventListener("click", closedMenu));
-    // Fonction pour basculer l'état du menu
-    function toggleNav() {
-        menuToggle.classList.toggle("active");
-        partToggle.forEach((part) => part.classList.toggle("active"));
+    .forEach((link) => link.addEventListener("click", closedMenuBurger));
+
+    
+    function burger() {
+        menuBurger.classList.toggle("active");
+        partBurger.forEach((part) => part.classList.toggle("active"));
     }
-    // Fonction pour fermer le menu
-    function closedMenu() {
-        menuToggle.classList.remove("active");
-        partToggle.forEach((part) => part.classList.remove("active"));
+  
+    function closedMenuBurger() {
+        menuBurger.classList.remove("active");
+        partBurger.forEach((part) => part.classList.remove("active"));
     }
   });
