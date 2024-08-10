@@ -33,7 +33,7 @@
     transform: translateY(0px);
   }
 }
-.video-banner,
+#video-banner,
 .image-fallback {
   position: absolute;
   width: 100%;
@@ -44,21 +44,17 @@
 .banner {
   position: relative;
   height: 800px;
-  animation: fadeDown 2s;
-}
-.banner .banner-video {
-  position: absolute;
-  bottom: 0px;
-  min-width: 1440px;
-  z-index: 1;
-  opacity: 1;
-  left: auto;
+  animation: fadeDown 2s forwards;
 }
 .banner .logo {
   position: sticky;
   top: 20px;
   z-index: 10;
   animation: floating 3s 2s infinite ease-in-out;
+}
+
+.image-fallback {
+  background: url("./assets/images/banner.png");
 }
 
 @keyframes floating {
@@ -72,21 +68,19 @@
     transform: translate(0px, 0px);
   }
 }
-.image-fallback {
-  background: url("./assets/images/banner.png");
-}
-
-@media only screen and (max-width: 768px) {
-  .fallback-image {
-    display: block;
-    background-size: cover;
-    background-position: center;
+@media screen and (max-width: 768px) {
+  .banner {
+    min-height: 300px;
   }
   #video-banner {
     display: none;
   }
 }
-#studio h2::before, #studio h2::after, article.story__article::after, .story h2::after, ul::after {
+#studio h2::before,
+#studio h2::after,
+article.story__article::after,
+.story h2::after,
+ul::after {
   animation: flower-rotation 20s linear infinite;
 }
 
@@ -140,7 +134,7 @@
 
 .sunflower_section_nomination,
 .orchidee_section_nomination {
-  animation: flower-rotation 10s linear infinite;
+  animation: flower-rotation 20s linear infinite;
 }
 
 .oscars_logo {
@@ -148,14 +142,7 @@
   height: 129px;
 }
 
-@media screen and (max-width: 1015px) {
-  .nomination {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-@media screen and (max-width: 765px) {
+@media (min-width: 300px) and (max-width: 767px) {
   #nomination h3 {
     font-size: 22px;
     line-height: normal;
@@ -163,6 +150,9 @@
     width: auto;
     text-align: center;
     background-size: 600px 200px;
+  }
+  #nomination img {
+    display: none;
   }
 }
 .titleAnim1,
@@ -178,11 +168,11 @@
 }
 
 .titleMov1 {
-  animation: titleMov1 1s ease-in-out;
+  animation: titleMov1 1.3s ease-in-out;
 }
 
 .titleMov2 {
-  animation: titleMov2 1s ease-in-out;
+  animation: titleMov2 1.3s ease-in-out;
 }
 
 @keyframes titleMov1 {
@@ -221,7 +211,15 @@
   margin-left: 10px;
 }
 
-/* MENU */
+@media (min-width: 300px) and (max-width: 767px) {
+  .clouds {
+    display: none !important;
+  }
+  #place h3 {
+    font-size: 30px;
+    margin-bottom: 50px !important;
+  }
+}
 .main-navigation {
   display: flex;
   width: 100%;
@@ -267,7 +265,8 @@
 .menuNav,
 .menuLogo,
 .menuFlowers,
-.menuCats, .menuFooter {
+.menuCats,
+.menuFooter {
   position: fixed;
   left: 0;
   flex-direction: column;
@@ -282,7 +281,8 @@
 .menuNav.active,
 .menuLogo.active,
 .menuFlowers.active,
-.menuCats.active, .menuFooter.active {
+.menuCats.active,
+.menuFooter.active {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
@@ -290,7 +290,7 @@
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: 80px;
+  top: 55px;
 }
 
 .linkNav {
@@ -310,10 +310,14 @@
   top: 950px;
 }
 
-.orchid, .sunflower, .flower, .random, .hibiscus {
+.orchid,
+.sunflower,
+.flower,
+.random,
+.hibiscus {
   position: absolute;
   height: auto;
-  animation: flower-rotation 18s linear infinite;
+  animation: flower-rotation 20s linear infinite;
 }
 
 .orchid {
@@ -346,7 +350,9 @@
   width: 30%;
 }
 
-.blackCat, .blueCat, .orangeCat {
+.blackCat,
+.blueCat,
+.orangeCat {
   position: absolute;
   height: auto;
 }
@@ -372,14 +378,14 @@
   animation: floating 3s 2s infinite ease-in-out;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 300px) and (max-width: 767px) {
   .site-header {
     background-color: #ffd5a2;
     height: 60px;
   }
   .site-title {
-    margin-top: 3% !important;
-    margin-left: 6% !important;
+    margin-top: 5% !important;
+    margin-left: 3% !important;
     font-size: 15px !important;
   }
   .main-navigation .menuNav {
@@ -387,22 +393,51 @@
     height: 100%;
   }
   .menuSection {
-    margin-top: -10% !important;
-    height: 35%;
+    margin-top: -30% !important;
+    height: 25% !important;
+    left: 15% !important;
   }
-  .menuToggle {
+  .menuSection li {
+    font-size: 30px;
+    line-height: 2;
+    margin-left: -40px;
+  }
+  .menuBurger {
     top: -14%;
     width: 0%;
     left: -6%;
   }
   .linkNav {
-    font-size: 18px;
+    font-size: 25px;
   }
   .footerNav {
-    margin-top: -20% !important;
-    left: 41% !important;
+    margin-top: -35% !important;
+    left: 30% !important;
   }
   .orchid {
     left: 10% !important;
+  }
+  .flower {
+    display: none;
+  }
+  .orchid,
+  .sunflower,
+  .random,
+  .hibiscus,
+  .blueCat,
+  .blackCat,
+  .orangeCat {
+    max-width: 50px;
+  }
+}
+@media (min-width: 300px) and (max-width: 767px) {
+  #studio h2 {
+    font-size: 25px;
+  }
+  .main-character h3 {
+    font-size: 25px;
+  }
+  #story h2 {
+    font-size: 25px;
   }
 }/*# sourceMappingURL=style.css.map */

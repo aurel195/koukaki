@@ -26,7 +26,7 @@ get_header();
             </article>
                    
             <article id="place">
-                <div>
+                <div class="place">
                     <h3><span class="titleAnim1 titleMov1">Le</span><span class="titleAnim2 titleMov2">&nbsp;Lieu</span></h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>

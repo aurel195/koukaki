@@ -11,65 +11,88 @@
 
 
 
+@mixin animFlowers {
+  animation: flower-rotation 20s linear infinite;
+}
+
+@mixin animFloating {
+  animation: floating 3s 2s infinite ease-in-out;
+}
+
+@mixin animFadeup {
+  animation: fadeUp 2s forwards;
+}
+
+@mixin animFadedown {
+  animation: fadeDown 2s forwards;
+}
+
+@mixin animTitle1 {
+  animation: titleMov1 1.3s ease-in-out;
+}
+
+@mixin animTitle2 {
+  animation: titleMov2 1.3s ease-in-out;
+}
+
+
 // section fadeUp fadeDown
+
+
 .fadeUp {
   opacity: 0;
-  animation: fadeUp 2s forwards ;
+  @include animFadeup;
 }
 
 @keyframes fadeUp {
-  from{
+  from {
     opacity: 0;
     transform: translateY(100px);
-    }
-  to{
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
-    }
-}
-
-@keyframes fadeDown {
-  from{
-    opacity: 0;
-    transform: translateY(-400px);
-}
-  to{
-    opacity: 1;
-    transform: translateY(0px)
   }
 }
 
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 
 // video banner
 
-.video-banner,
-.image-fallback{
-  position:absolute;
+
+#video-banner,
+.image-fallback {
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
-.banner{
+.banner {
   position: relative;
   height: 800px;
-  animation: fadeDown 2s;
-  .banner-video{
-	position: absolute;
-	bottom: 0px;
-	min-width: 1440px;
-	z-index: 1;
-	opacity: 1;
-	left: auto;
-  }
+  @include animFadedown;
+
   .logo {
-	position: sticky;
-	top: 20px;
-	z-index: 10;
-	animation: floating 3s 2s infinite ease-in-out;
-}
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    @include animFloating;
+  }
 }
 
+.image-fallback {
+  background: url("./assets/images/banner.png");
+}
 
 @keyframes floating {
   0% {
@@ -83,51 +106,44 @@
   }
 }
 
-.image-fallback {
-  background: url('./assets/images/banner.png');
-}
-  
-@media only screen and (max-width: 768px) {
-  .fallback-image {
-    display: block;
-    background-size: cover;
-    background-position: center;
-  }
+// Queries banner
 
+@media screen and (max-width: 768px) {
+  .banner {
+    min-height: 300px;
+  }
   #video-banner {
     display: none;
   }
 }
 
-
 //Animation flower-rotation
 
-#studio h2::before, #studio h2::after, article.story__article::after, .story h2::after,ul::after{
-    animation: flower-rotation 20s linear infinite;
+
+#studio h2::before,
+#studio h2::after,
+article.story__article::after,
+.story h2::after,
+ul::after {
+  @include animFlowers;
 }
 
 @keyframes flower-rotation {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0);
   }
-
-
-//Parallaxe titre/vidéo
-
-
-
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 // Ajout section nomination
 
+
 .site-footer::before,
-.site-footer::after{
+.site-footer::after {
   display: none;
 }
-
 
 .nomination {
   display: flex;
@@ -136,7 +152,7 @@
   align-items: center;
   margin-top: 100px;
 }
-#nomination h3  {
+#nomination h3 {
   background-image: url("./assets/images/background_studio.png");
   background-size: 674px 196px;
   margin: 0;
@@ -165,7 +181,7 @@
 
 .sunflower_section_nomination,
 .orchidee_section_nomination {
-  animation: flower-rotation 10s linear infinite;
+  @include animFlowers;
 }
 
 .oscars_logo {
@@ -173,14 +189,9 @@
   height: 129px;
 }
 
-@media screen and (max-width: 1015px) {
-  .nomination {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-@media screen and (max-width: 765px) {
+// Queries Nomination
+
+@media (min-width: 300px) and (max-width: 767px) {
   #nomination h3 {
     font-size: 22px;
     line-height: normal;
@@ -189,251 +200,322 @@
     text-align: center;
     background-size: 600px 200px;
   }
+  #nomination img {
+    display: none;
+  }
 }
+
+
+
+
 
 //Animation des titres
 
+
 .titleAnim1,
 .titleAnim2 {
-	opacity: 0;
-	}
+  opacity: 0;
+}
 
 .titleMov1,
-.titleMov2{
-	display:inline-block;
-	position: relative;
-	opacity: 1;
-	}
+.titleMov2 {
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+}
 
 .titleMov1 {
-	animation: titleMov1 1s ease-in-out;
-	}
+  @include animTitle1;
+}
 
 .titleMov2 {
-	animation: titleMov2 1s ease-in-out;
-	}
-
-@keyframes  titleMov1 {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @keyframes titleMov2 {
-    from{
-      transform: translateY(150%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-// Animation clouds au scroll
-
-.story{
-	#place{
-		background-image: url(./assets/images/place.png);
-		
-		.clouds{
-			position:relative;
-			filter:blur(13px);
-		}
-		.big-cloud{
-			margin-top: -348px;
-			padding-left:320px;
-			position:relative;
-		}
-		.little-cloud{
-			margin-left:10px;
-		}
-	}
+  @include animTitle2;
 }
+
+@keyframes titleMov1 {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes titleMov2 {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+// Animation clouds au scroll section place
+
+
+.story {
+  #place {
+    background-image: url(./assets/images/place.png);
+
+    .clouds {
+      position: relative;
+      filter: blur(13px);
+    }
+    .big-cloud {
+      margin-top: -348px;
+      padding-left: 320px;
+      position: relative;
+    }
+    .little-cloud {
+      margin-left: 10px;
+    }
+  }
+}
+
+// Queries section place
+
+@media (min-width: 300px) and (max-width: 767px) {
+  .clouds {
+    display: none !important;
+  }
+  #place h3 {
+    font-size: 30px;
+    margin-bottom: 50px !important;
+  }
+}
+
+
+
+
+
 
 // Menu burger
 
-/* MENU */
 
 .main-navigation {
-	display: flex;
-	width: 100%;
-	.site-title {
-	  height: 100%;
-	  justify-content: center;
-	  display: flex !important;
-	  align-items: center !important;
-	  margin-left: 38%;
-	  &:hover {
-		color: black;
-	  }
-	}}
+  display: flex;
+  width: 100%;
+  .site-title {
+    height: 100%;
+    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 38%;
+    &:hover {
+      color: black;
+    }
+  }
+}
 
-	.menuBurger{
-	  width: 110px;
-	  height: 85px;
-	  z-index: 20;
-	position: absolute;
-	cursor: pointer;
-	margin-left: 87%;
-	margin-top: 25px;
-	&.active {
-	  .line:nth-child(2) {
-		opacity: 0;
-	  }
-	  .line:nth-child(1) {
-		transform: translateY(9px) rotate(50deg);
-	  }
-	  .line:nth-child(3) {
-		transform: translateY(-9px) rotate(-50deg);
-	  }
-	}
-	
-	.line {
-	  display: block;
-	  background: black;
-	  width: 45px !important;
-	  height: 3px !important;
-	  margin: 6px;
-	  transition: all 0.3s ease-in-out;
-	}
+.menuBurger {
+  width: 110px;
+  height: 85px;
+  z-index: 20;
+  position: absolute;
+  cursor: pointer;
+  margin-left: 87%;
+  margin-top: 25px;
+  &.active {
+    .line:nth-child(2) {
+      opacity: 0;
+    }
+    .line:nth-child(1) {
+      transform: translateY(9px) rotate(50deg);
+    }
+    .line:nth-child(3) {
+      transform: translateY(-9px) rotate(-50deg);
+    }
+  }
 
-   }
-	.menuNav,
-	.menuLogo,
-	.menuFlowers,
-	.menuCats, .menuFooter {
-	  position: fixed;
-	  left: 0;
-	  flex-direction: column;
-	  background-color: #fff5e9;
-	  width: 100%;
-	  text-align: center;
-	  transition: transform 0.3s ease,opacity 0.3s ease;
-	  transform: translateY(100%);
-	  opacity: 0;
-	  pointer-events: none;
-	  &.active {
-		transform: translateY(0);
-		opacity: 1;
-		pointer-events: auto;
-		max-width: 1440px;
-		margin: 0 auto;
-		left: 0;
-		right: 0;
-		top: 80px;
-		}
-	  }
-	
+  .line {
+    display: block;
+    background: black;
+    width: 45px !important;
+    height: 3px !important;
+    margin: 6px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.menuNav,
+.menuLogo,
+.menuFlowers,
+.menuCats,
+.menuFooter {
+  position: fixed;
+  left: 0;
+  flex-direction: column;
+  background-color: #fff5e9;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    max-width: 1440px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 55px;
+  }
+}
 
-	
-	.linkNav {
-	  font-size: 64px;
-	  transition: 0.7s ease;
-	  pointer-events: auto;
-	  &:hover {
-		color: black;
-		text-shadow: 0 0 14px #ffa885 ;
-		transition: opacity 0.3s;
-	  }
-	}
+.linkNav {
+  font-size: 64px;
+  transition: 0.7s ease;
+  pointer-events: auto;
+  &:hover {
+    color: black;
+    text-shadow: 0 0 14px #ffa885;
+    transition: opacity 0.3s;
+  }
+}
 .footerNav {
-	position:absolute;
-	left: 46%;
-	top: 950px;
-}	
-	
+  position: absolute;
+  left: 46%;
+  top: 950px;
+}
 
-  .orchid, .sunflower, .flower, .random, .hibiscus {
-	position: absolute;
-	height: auto;
-	animation: flower-rotation 18s linear infinite;
+.orchid,
+.sunflower,
+.flower,
+.random,
+.hibiscus {
+  position: absolute;
+  height: auto;
+  @include animFlowers;
+}
+.orchid {
+  top: 70px;
+  left: -3%;
+  width: 150px;
+}
+.sunflower {
+  top: 90px;
+  left: 70%;
+  width: 200px;
+}
+.flower {
+  top: 410px;
+  left: 18%;
+  width: 50px;
+}
+.random {
+  top: 350px;
+  left: 98%;
+  width: 50px;
+}
+.hibiscus {
+  top: 530px;
+  left: 86%;
+  width: 30%;
+}
+
+.blackCat,
+.blueCat,
+.orangeCat {
+  position: absolute;
+  height: auto;
+}
+.blackCat {
+  top: 420px;
+  left: 75%;
+  width: 130px;
+  @include animFloating;
+}
+.blueCat {
+  top: 160px;
+  left: 20%;
+  width: 120px;
+  @include animFloating;
+}
+.orangeCat {
+  top: 610px;
+  left: 8%;
+  width: 115px;
+  @include animFloating;
+}
+
+// Queries 	Menu-Burger
+
+@media (min-width: 300px) and (max-width: 767px) {
+  .site-header {
+    background-color: #ffd5a2;
+    height: 60px;
   }
-	.orchid {
-	  top: 70px;
-	  left: -3%;
-	  width: 150px;
-	}
-	.sunflower {
-	  top: 90px;
-	  left: 70%;
-	  width: 200px;
-	}
-	.flower {
-	  top: 410px;
-	  left: 18%;
-	  width: 50px;
-	}
-	.random {
-	  top: 350px;
-	  left: 98%;
-	  width: 50px;
-	}
-	.hibiscus {
-	  top: 530px;
-	  left: 86%;
-	  width: 30%;
-	}
-  
-  .blackCat, .blueCat, .orangeCat {
-	position: absolute;
-	height: auto;
+  .site-title {
+    margin-top: 5% !important;
+    margin-left: 3% !important;
+    font-size: 15px !important;
   }
-	.blackCat {
-	  top: 420px;
-	  left: 75%;
-	  width: 130px;
-	  animation: floating 3s 2s infinite ease-in-out;
-	}
-	.blueCat {
-	  top: 160px;
-	  left: 20%;
-	  width: 120px;
-	  animation: floating 3s 2s infinite ease-in-out;
-	}
-	.orangeCat {
-	  top: 610px;
-	  left: 8%;
-	  width: 115px;
-	  animation: floating 3s 2s infinite ease-in-out;
-	}
-	
-	@media (min-width: 320px) and (max-width: 767px) {
-	  .site-header {
-		background-color: #ffd5a2;
-		height: 60px;
-	  }
-	  .site-title {
-		margin-top: 3% !important;
-		margin-left: 6% !important;
-		font-size: 15px !important;
-	  }
-	  .main-navigation .menuNav {
-		display: flex;
-		height: 100%;
-	  }
-	  .menuSection {
-		margin-top: -10% !important;
-		height: 35%;
-	  }
-	  .menuToggle {
-		top: -14%;
-		width: 0%;
-		left: -6%;
-	  }
-	  .linkNav {
-		font-size: 18px;
-	  }
-	  .footerNav {
-		margin-top: -20% !important;
-		left: 41% !important;
-	  }
-	  .orchid {
-		left: 10% !important;
-	  }
-	}
-	
+  .main-navigation .menuNav {
+    display: flex;
+    height: 100%;
+  }
+  .menuSection {
+    margin-top: -30% !important;
+    height: 25% !important;
+    left: 15% !important;
+
+    li {
+      font-size: 30px;
+      line-height: 2;
+      margin-left: -40px;
+    }
+  }
+  .menuBurger {
+    top: -14%;
+    width: 0%;
+    left: -6%;
+  }
+  .linkNav {
+    font-size: 25px;
+  }
+  .footerNav {
+    margin-top: -35% !important;
+    left: 30% !important;
+  }
+  .orchid {
+    left: 10% !important;
+  }
+  .flower {
+    display: none;
+  }
+  .orchid,
+  .sunflower,
+  .random,
+  .hibiscus,
+  .blueCat,
+  .blackCat,
+  .orangeCat {
+    max-width: 50px;
+  }
+}
+
+
+
+
+
+// Queries diverses
+
+@media (min-width: 300px) and (max-width: 767px) {
+  #studio h2 {
+    font-size: 25px;
+  }
+  .main-character h3 {
+    font-size: 25px;
+  }
+  #story h2 {
+    font-size: 25px;
+  }
+}
