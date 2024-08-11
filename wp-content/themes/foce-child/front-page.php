@@ -17,7 +17,7 @@ get_header();
             </article>
             <article id="characters">
                 <div class="main-character">
-                    <h3 id="#place" class="titreh3">
+                    <h3 class="titreh3">
                         <span class="titleAnim1 titleMov1">Les</span>
                         <span class="titleAnim2 titleMov2">&nbsp;personnages</span>
                     </h3>
@@ -27,7 +27,10 @@ get_header();
                    
             <article id="place">
                 <div class="place">
-                    <h3><span class="titleAnim1 titleMov1">Le</span><span class="titleAnim2 titleMov2">&nbsp;Lieu</span></h3>
+                    <h3 class="place_title">
+                        <span class="titleAnim1 titleMov1">Le</span>
+                        <span class="titleAnim2 titleMov2">&nbsp;Lieu</span>
+                    </h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
                 <?php get_template_part('template-part/clouds'); ?>

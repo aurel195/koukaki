@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const swiper = new Swiper(".swiper", {
     direction: "horizontal",
     loop: true,
-    slidesPerView: "3",
+    slidesPerView: "auto",
     centeredSlides: true,
     initialSlide: 0,
     spaceBetween: 40,

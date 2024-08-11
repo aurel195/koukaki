@@ -34,6 +34,6 @@
             <div class="menuFooter">
                 <p class="footerNav">STUDIO KOUKAKI</p>
 
+            </div>
         </div>
-</div>
         

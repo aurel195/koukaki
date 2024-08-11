@@ -8,9 +8,6 @@
  Version: 0.1
 */
 
-
-
-
 @mixin animFlowers {
   animation: flower-rotation 20s linear infinite;
 }
@@ -34,7 +31,6 @@
 @mixin animTitle2 {
   animation: titleMov2 1.3s ease-in-out;
 }
-
 
 // section fadeUp fadeDown
 
@@ -103,17 +99,6 @@
   }
   100% {
     transform: translate(0px, 0px);
-  }
-}
-
-// Queries banner
-
-@media screen and (max-width: 768px) {
-  .banner {
-    min-height: 300px;
-  }
-  #video-banner {
-    display: none;
   }
 }
 
@@ -189,25 +174,6 @@ ul::after {
   height: 129px;
 }
 
-// Queries Nomination
-
-@media (min-width: 300px) and (max-width: 767px) {
-  #nomination h3 {
-    font-size: 22px;
-    line-height: normal;
-    font-weight: 400;
-    width: auto;
-    text-align: center;
-    background-size: 600px 200px;
-  }
-  #nomination img {
-    display: none;
-  }
-}
-
-
-
-
 
 //Animation des titres
 
@@ -253,12 +219,21 @@ ul::after {
   }
 }
 
+// Section Personnages 
 
 
+.swiper,
+.mySwiper {
+  width: 100%;
+}
 
+.story #characters {
+  height: 400px !important;
+  width: 80% !important;
+  margin-bottom: 50px;
+}
 
 // Animation clouds au scroll section place
-
 
 .story {
   #place {
@@ -279,25 +254,7 @@ ul::after {
   }
 }
 
-// Queries section place
-
-@media (min-width: 300px) and (max-width: 767px) {
-  .clouds {
-    display: none !important;
-  }
-  #place h3 {
-    font-size: 30px;
-    margin-bottom: 50px !important;
-  }
-}
-
-
-
-
-
-
 // Menu burger
-
 
 .main-navigation {
   display: flex;
@@ -353,6 +310,7 @@ ul::after {
   flex-direction: column;
   background-color: #fff5e9;
   width: 100%;
+  max-width: 100%;
   text-align: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateY(100%);
@@ -366,7 +324,7 @@ ul::after {
     margin: 0 auto;
     left: 0;
     right: 0;
-    top: 55px;
+    top: 80px;
   }
 }
 
@@ -380,11 +338,23 @@ ul::after {
     transition: opacity 0.3s;
   }
 }
-.footerNav {
-  position: absolute;
-  left: 46%;
-  top: 950px;
+.menuFooter {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+  position: relative; 
+  height: auto; 
 }
+.footerNav {
+  position: relative;
+  margin: 0;
+  text-align: center;
+  top:900px;
+  right: 600px;
+  width: 300px;
+}
+
 
 .orchid,
 .sunflower,
@@ -446,50 +416,52 @@ ul::after {
   @include animFloating;
 }
 
-// Queries 	Menu-Burger
+// Media Queries pour Mobile
 
-@media (min-width: 300px) and (max-width: 767px) {
-  .site-header {
-    background-color: #ffd5a2;
-    height: 60px;
+@media (max-width: 767px) {
+  h2 {
+    font-size: 24px;
   }
-  .site-title {
-    margin-top: 5% !important;
-    margin-left: 3% !important;
-    font-size: 15px !important;
+  h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  // Section Personnages
+  #characters {
+    margin: 0;
+    width: 80%;
+    h3 {
+      margin-bottom: 70px;
+    }
+  }
+
+  // Menu burger
+  .menuBurger {
+    width: 60px;
+    top: -14%;
+    width: 0%;
+    left: -6%;
   }
   .main-navigation .menuNav {
     display: flex;
     height: 100%;
   }
-  .menuSection {
-    margin-top: -30% !important;
-    height: 25% !important;
-    left: 15% !important;
-
-    li {
-      font-size: 30px;
-      line-height: 2;
-      margin-left: -40px;
-    }
-  }
-  .menuBurger {
-    top: -14%;
-    width: 0%;
-    left: -6%;
-  }
   .linkNav {
-    font-size: 25px;
+    font-size: 22px;
   }
-  .footerNav {
-    margin-top: -35% !important;
-    left: 30% !important;
+  .titreh3 {
+    font-size: 20px;
   }
-  .orchid {
-    left: 10% !important;
+  .place_title {
+    font-size: 25px !important;
+    margin-bottom: 50px !important;
   }
   .flower {
     display: none;
+  }
+  .clouds {
+    display: none !important;
   }
   .orchid,
   .sunflower,
@@ -500,22 +472,126 @@ ul::after {
   .orangeCat {
     max-width: 50px;
   }
+  .orchid {
+    left: 10% !important;
+  }
+  .sunflower {
+    left: 80%;
+  }
+  .site-header {
+    background-color: #ffd5a2;
+    height: 60px;
+  }
+  .site-title {
+    margin-top: 5% !important;
+    margin-left: 3% !important;
+    font-size: 15px !important;
+  }
+  .orchid {
+    left: 10% !important;
+  }
+  .footerNav {
+    top:700px;
+    right: 90px;
+    width: 300px;
+  }
+
+  // Section Nomination
+  #nomination h3 {
+    font-size: 22px;
+    line-height: normal;
+    font-weight: 400;
+    width: auto;
+    text-align: center;
+    background-size: 600px 200px;
+  }
+  #nomination img {
+    display: none;
+  }
+  .menuNav,
+  .menuLogo,
+  .menuFlowers,
+  .menuCats,
+  .menuFooter {
+    &.active {
+      top: 55px;
+    }
+  }
+  body #video-banner { 
+    display: none !important;
+  }
 }
 
+// Section Swiper
+.swiper,
+.mySwiper {
+  width: 100%;
+}
+.story #characters {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 50px;
+}
 
-
-
-
-// Queries diverses
-
-@media (min-width: 300px) and (max-width: 767px) {
-  #studio h2 {
-    font-size: 25px;
+  // Media Queries pour Tablette
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-navigation {
+    width: 100%;
   }
-  .main-character h3 {
-    font-size: 25px;
+  a.site-title {
+    margin-left: 180px !important;
   }
-  #story h2 {
-    font-size: 25px;
+  h2 {
+    font-size: 32px;
   }
+  h3 {
+    font-size: 32px;
+  }
+
+  //Section Place
+  .titreh3 {
+    font-size: 32px;
+    margin-bottom: 100px;
+  }
+  .clouds {
+    display: none !important;
+  }
+
+  //Section Banner
+  .banner {
+    height: 600px;
+  }
+  #video-banner {
+    display: none;
+  }
+
+  //Section Nomination
+  .flower {
+    display: none;
+  }
+  #nomination img {
+    display: none;
+  }
+
+  //Section  Personnages
+  #character .titreh3 {
+    font-size: 30px;
+  }
+  .story #characters {
+    margin-top: 50px;
+    margin-bottom: 150px;
+  }
+
+  //Menu Burger
+  .linkNav {
+    font-size: 30px !important; 
+  }
+  .footerNav {
+   top: 700px;
+   right: 325px;
+  }
+  h2::before {
+    display: none;
+   }
+  
 }
